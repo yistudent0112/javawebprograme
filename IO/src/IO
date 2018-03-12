@@ -1,0 +1,61 @@
+IO流(输入流,输出流)
+字节流,字符流
+1.字节流
+1)InputStream,OutputStream
+InputStream抽象了应用读取数据的方法
+OutputStream抽象了应用输出数据的方法
+2)EOF=end 读到-1代表读到结束
+3)输入流的基本方法
+int b=in.read()读取一个字节无符号填充到int的第八位 -1代表EOF
+in.read(byte[] buf)
+in.read(byte[] buf,int start,int size)
+4)输出流的基本方法
+out.write(int b)读取一个字节给int类型的参数b
+out.write(byte[] buf)将字节数组全部写入到流中
+out.write(byte[] buf,int start,int size)字符数组buf从start位置开始写，写入一段长为size的字符串到流中
+5)FileInputStream 具体实现了在文件上读取数据
+6)FileOutputStream 实现了向文件中写出byte数据的功能
+7)DataOutputStream/DataInputStream
+对“流”功能的拓展，可以更加方便的对int，long，字符等类型数据进行读写操作
+DataOutputStream
+writeInt()/writeLong()/writeUTF()
+
+8)BufferedInputStream&BufferedOutputStream
+这两个流类为IO提供了带缓冲的操作，一般文件打开时都会进行缓冲操作来提高读取效率。
+从应用程序中把输入数据读取到文件中，相当于把一缸水倒入到另一缸水中去
+FileOutputStream--write()方法 相当于把水一滴一滴的转移到缸中去
+DataOutputStream--writexXX()方法 相当于把水一杯一杯对的转移到缸中去
+BufferedOutputStream--writexXX()方法 相当于把水一杯一杯的转移到桶中在一次倒入到缸中去
+FileOutputStream--write(byte [])方法 相当于把水一桶一桶的转移到缸中去
+
+2.字符流
+1)编码方式
+2)认识文本和文本文件
+Java的文本(char)是16位无符号整数，是字符的Unicode编码(双字节编码)
+文件是byte byte byte... 的数据序列
+文本文件是文本(char)按照某种编码方式(utf-8,utf-16be,gbk)的byte数据序列
+3)字符流的输入与输出流(Reader Writer)操作的是文本文本文件
+字符的处理，一次处理一个字符
+字符的底层仍然是基本的数据序列
+字符流的基本实现
+  InputStreamReader 完成了byte类型对char类型的解析，按照设定的编码方式
+  OutputStreamWriter 完成了char类型对byte类型的编码，按照设定的编码方式
+
+ FileReader/FileWriter 构造函数中不能设定编码方式
+ 字符流的过滤器
+ BufferedReader readLine()一次读一行
+ BufferedWriter writeLine()一次写一行
+ 
+ 3.对象的序列化与反序列化
+ 1)对象的序列化就是将Object对象转换成byte对象，反之就是反序列化
+ 2)序列化流(ObjectOutputStream)是过滤流---->writeObject()
+ 反序列化流(ObjectInputStream)是过滤流----->readObject()
+3)序列化接口(Serializable) 
+对象必须实现序列化接口才能进行序列化，不然会抛出异常
+这个接口没有定义任何方法，只是一个标准
+
+4.transient关键字，使元素不进行序列化操作
+private void writeObject(ObjectOutputStream s)throws IOException
+private void readObject(ObjectInputStream s)throws IOException
+
+5)序列化中子类和父类构造函数调用问题
