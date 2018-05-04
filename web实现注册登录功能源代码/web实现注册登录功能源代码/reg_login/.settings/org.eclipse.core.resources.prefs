@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+encoding//WebContent/css/login.css=UTF-8
+encoding//WebContent/css/reg.css=UTF-8
+encoding//src/com/imooc/domain/User.java=UTF-8
+encoding//src/com/imooc/servlet/InitServlet.java=UTF-8
+encoding//src/com/imooc/servlet/LoginServlet.java=UTF-8
+encoding//src/com/imooc/servlet/RegistServlet.java=UTF-8
+encoding//src/com/imooc/utils/CookieUtils.java=UTF-8
+encoding//src/com/imooc/utils/UploadUtils.java=UTF-8

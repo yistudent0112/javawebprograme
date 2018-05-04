@@ -41,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body style="text-align:center;">
 			<input type="button" value="查看java课程" flag="1" onclick="showJava()">
 			<input type="button" value="查看C课程" flag="2" onclick="showC()">
-			<div style="width:400px,height:300px" id="div1">
+			<div style="width:400px;height:300px" id="div1">
 			</div>
 </body>
 <script type="text/javascript">

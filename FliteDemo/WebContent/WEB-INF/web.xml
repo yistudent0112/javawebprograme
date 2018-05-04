@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>FliteDemo</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!--servlet配置文件  -->
+  <servlet>
+    <servlet-name>MessageServlet</servlet-name>
+    <servlet-class>com.imooc.servlet.MessageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MessageServlet</servlet-name>
+    <url-pattern>/MessageServlet</url-pattern>
+  </servlet-mapping>
+  
+<!--filter配置文件  -->
+  <filter>
+    <filter-name>CharacterEncodingFilter</filter-name>
+    <filter-class>com.imooc.fliter.CharacterEncodingFliter</filter-class>   
+<!-- 定义初始化参数，使默认编码方式为utf-8 -->
+    <init-param>
+      <param-name>CharacterEncoding</param-name>
+      <param-value>utf-8</param-value>
+    </init-param>
+    
+  
+  </filter>
+  <filter-mapping>
+    <filter-name>CharacterEncodingFilter</filter-name>
+    <url-pattern>/message.jsp</url-pattern>
+    <!--dispatcher元素用来控制拦截哪种访问方式
+    一共有四种访问方式 request include forward error 
+    dispatcher元素可以一次配置多个
+      -->
+    <dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
+</web-app>

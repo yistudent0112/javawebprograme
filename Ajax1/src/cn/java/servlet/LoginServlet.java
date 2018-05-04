@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.jasper.tagplugins.jstl.core.Out;
 import org.json.JSONObject;
 
 
@@ -15,6 +16,7 @@ import org.json.JSONObject;
 public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//1、首先获取jsp页面传递过来的参数信息
+	    System.out.println("hello");
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		//2、如果username="15912345678"，password="12345678"则登录成功，否则登录失败
