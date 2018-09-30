@@ -1,0 +1,11 @@
+遇到了css文件加载不出来的问题，惯性的以为是因为加载的路径不对
+通过查阅后发现是因为没有在servlet mapping中配置css类型的文件，直接被tomcat给过滤掉了
+在web.xml中使用默认servlet 配置好 css类型文件就能够解决问题了
+
+参考网址  https://blog.csdn.net/qq_27437301/article/details/73335555
+解决方法
+在web.xml中添加下列内容
+ <servlet-mapping>
+   <servlet-name>default</servlet-name>
+   <url-pattern>*.css</url-pattern>
+ </servlet-mapping>

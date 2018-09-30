@@ -1,0 +1,8 @@
+文件导入导出项目
+当需要对当前页面进行文件输出时，就不能进行页面跳转了。
+如果实施了页面跳转，就会导致那个输出的文件在前一个页面被输出了
+但因为页面之后发生了跳转，从而不能够获取到那个文件
+会抛出的异常为
+Cannot forward after response has beencommitted问题分析及解决
+参考内容
+https://blog.csdn.net/ljheee/article/details/51049773

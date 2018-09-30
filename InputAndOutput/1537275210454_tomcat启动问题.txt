@@ -1,0 +1,8 @@
+tomcat启动遇到问题
+
+查看日志看到出错问题为
+The servlets named [A] and [B] are both mapped to the url-pattern [/servlet/]which is not permitted
+意思就是出现了两个servlet对同一个url地址对应了，但是查看web.xml的配置，并没有出现重复地址的情况
+经过上网搜索发现，问题出在eclipse自动生成的注解上
+@WebServlet(“/servlet/ClientRedirect”)
+在生成servlet后，会自动生成一个注解来配置servlet对应的url地址，默认的地址为servlet类的名字出去servlet
