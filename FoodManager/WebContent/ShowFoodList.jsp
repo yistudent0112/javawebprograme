@@ -15,13 +15,14 @@
 <body>
 <%
   Food temp=(Food)request.getSession().getAttribute("food");
- int index=temp.getPath().lastIndexOf("\\");
-  String FileName=temp.getPath().substring(index+1);
-  
-  //String FileName=temp.getPath();
+  String FileName="";
+  String path=temp.getPath();
+  int index=temp.getPath().lastIndexOf("\\");
+  FileName=temp.getPath().substring(index+1); 
+  // String FileName=temp.getPath(); 
+
 %>
-	<center>
-	
+<center>	
 		<h1>菜品查询</h1>
 		<table border="1px" cellspacing="0px" cellpadding="0px" width="800px">
 			<thead>

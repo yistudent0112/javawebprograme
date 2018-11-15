@@ -1,0 +1,27 @@
+javascript 中href和onclick()之间的比较
+遇到了一个问题，如下情况
+function do(obj)//需要传入当前对象
+{
+//执行一定的操作
+}
+分别使用了href 和onclick()来调用这个函数
+调用方式分别为
+1.href="javascript:do(this);" 
+2.onclick="do(this)"
+但href方式就不能够成功
+因为这里两者所传递的this对象是不同的
+1.href方法中this对象代表的是整个页面框对象，就是当前网页的所有内容
+2.onclick方法中this对象代表的是调用函数对象的当前dom节点，也就是需要被传入的那个参数
+
+顺便比较一下href和onclick的执行先后顺序
+当点击了按钮之后，是先执行onclick中的事件，再执行href跳转的。
+如果实际应用中，确实需要 a 标签来响应 onclick 事件的，
+且不想执行 href 属性下的动作，推荐以下3种写法：
+1、 javascript:void(0) 相当于一个死链接，href 不执行
+<a href="javascript:void(0)" onclick="do()">点击</a>
+2、onclick 返回 false，href 不执行
+<a href="网页地址" onclick="do();return false;">点击</a>
+3、onclick 返回 false，href 不执行
+<a href="网页地址" onclick="do();event.returnValue=false;">点击</a>
+
+由上可知，想要让href跳转不执行，只需要将onclick事件的返回值设置为false就行了

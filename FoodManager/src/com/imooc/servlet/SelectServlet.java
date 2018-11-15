@@ -35,6 +35,7 @@ public class SelectServlet extends HttpServlet {
 	        	//System.out.println(index);
 	        	request.getSession().setAttribute("food", food);
 	            System.out.println("success");
+	            System.out.println(food.getPath());
 	        	response.sendRedirect(request.getContextPath()+"/ShowFoodList.jsp");
 	        }
 	}

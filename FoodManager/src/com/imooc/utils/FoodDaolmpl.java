@@ -25,6 +25,7 @@ public class FoodDaolmpl {
 		food.setFoodPrice(temp.get("FoodPrice"));
 		food.setFlavour(temp.get("Flavour"));
 		food.setPath(temp.get("Path"));
+		//System.out.println(temp.get("Path"));
 		food.setFoodContext(temp.get("FoodContext"));
 		if (!FoodExits(food)) {
 			db.put(temp.get("FoodId"), food);

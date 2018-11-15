@@ -9,4 +9,4 @@
 而我写成了 	request.getRequestDispatcher(source+"/logout?domains="+domains1);
 因为这个错误很隐蔽，导致好了大量的时间来检查，好在最后是解决了问题
 之后会比较一下这两个方法的区别和使用的范围 
-未完
+未完

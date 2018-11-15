@@ -1,0 +1,9 @@
+request和response页面跳转的区别
+request是请求，是在服务器端运行的
+response是响应，是在客户端运行的
+两者的主要区别为如下：
+1、request.getRequestDispatcher("a").forward(rquest,response); 
+request转发，它可以保存request中的数据，页面跳转，但是地址是不调整的 。
+2、response.sendRedirect("b"); 方式是重定向，它的数据是不共享的。
+也就是说 request中a页面保存的数据在b页面中是获取不到的，这种方式是表单是不能重复提交的 ，
+3、response跳转是可以实现跨域的，地址栏也会变化。

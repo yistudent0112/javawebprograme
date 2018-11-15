@@ -51,6 +51,7 @@ public class UserFilter implements Filter {
 		if (!Objects.equals(null, ticket)) {
 			// 需要进行用户校验，如果不是用户或者是非法访问应该跳回到登录页面
 			// 判断超时时间
+			System.out.println("进入用户校验界面");
 			String[] values = ticket.split(":");
 			ticket = request.getParameter("ticket");
 			if (Long.valueOf(values[1]) < System.currentTimeMillis()) {

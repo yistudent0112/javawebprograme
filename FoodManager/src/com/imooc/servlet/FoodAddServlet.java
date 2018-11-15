@@ -95,7 +95,9 @@ public class FoodAddServlet extends HttpServlet {
 				}
 			}
 			if (FoodDaolmpl.addFood(map)) {
+				//System.out.println(map.get("Path"));
 				System.out.println("success");
+			
 				response.sendRedirect(request.getContextPath() + "/ShowFoodList.jsp");
 			} else {
 				System.out.println("fail");
